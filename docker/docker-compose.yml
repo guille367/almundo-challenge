@@ -1,0 +1,47 @@
+version: '3.4'
+
+services:
+  almundo-back:
+    image: node:12.14.1-alpine
+    container_name: almundo-back
+    build:
+      context: ../back
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - almundo-db
+    networks:
+      - almundo-net
+  
+  almundo-db:
+    image: postgres:11-alpine
+    container_name: almundo-db
+    environment:
+      - POSTGRES_DB=almundo-db
+      - POSTGRES_USER=adminalmundo
+      - POSTGRES_PASSWORD=almundoadmin
+    ports:
+      - 5432:5432
+    networks:
+      - almundo-net
+
+  almundo-nginx:
+    image: nginx:alpine
+    container_name: almundo-nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+    depends_on:
+      - almundo-back
+    links:
+      - almundo-db:almundo-db
+      - almundo-back:almundo-back
+    command: ["nginx", "-g", "daemon off;"]
+    networks:
+      - almundo-net
+
+networks:
+  almundo-net:
+    driver: bridge
