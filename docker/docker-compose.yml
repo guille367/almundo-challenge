@@ -15,7 +15,7 @@ services:
     volumes:
       - ../front:/front
     working_dir: /front
-    command: ng serve --host 0.0.0.0
+    command: ng serve --host 0.0.0.0 --disable-host-check
 
   almundo-back:
     image: node:12.14.1-alpine
