@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-filtros',
+  selector: 'filtros',
   templateUrl: './filtros.component.html',
   styleUrls: ['./filtros.component.scss']
 })
