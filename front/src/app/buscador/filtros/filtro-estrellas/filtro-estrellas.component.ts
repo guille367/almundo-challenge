@@ -7,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltroEstrellasComponent implements OnInit {
 
-  constructor() { }
-
+  cantidadEstrellasAFiltrar: Array<number>;
+  
+  constructor() { 
+    this.cantidadEstrellasAFiltrar = [5,4,3,2,1];
+  }
+  
   ngOnInit() {
   }
 

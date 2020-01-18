@@ -1,7 +1,11 @@
-<p>
+<div>
   <input type="checkbox" /> 
+  &nbsp;
   <span>Todas las estellas</span>
-</p>
+</div>
 
-<estrellas [cantidad]="4">
-</estrellas>
+<div *ngFor="let estrellas of cantidadEstrellasAFiltrar">
+  <input type="checkbox" />
+  &nbsp;
+  <estrellas [cantidad]="estrellas">  </estrellas>
+</div>
