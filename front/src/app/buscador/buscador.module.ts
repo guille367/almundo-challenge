@@ -7,6 +7,7 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
 import { BuscadorRoutingModule } from './buscador-routing.module';
 import { FiltroNombreComponent } from './filtros/filtro-nombre/filtro-nombre.component';
 import { FiltroEstrellasComponent } from './filtros/filtro-estrellas/filtro-estrellas.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FiltroEstrellasComponent } from './filtros/filtro-estrellas/filtro-estr
   ],
   imports: [
     CommonModule,
-    BuscadorRoutingModule
+    BuscadorRoutingModule,
+    SharedModule
   ]
 })
 export class BuscadorModule { }
