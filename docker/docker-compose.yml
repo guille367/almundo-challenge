@@ -1,6 +1,22 @@
 version: '3.4'
 
 services:
+  almundo-front:
+    image: angular:latest
+    build:
+      context: ../front
+      dockerfile: Dockerfile
+    container_name: almundo-front
+    tty: true
+    networks:
+      - almundo-net
+    ports:
+      - 4200:4200
+    volumes:
+      - ../front:/front
+    working_dir: /front
+    command: ng serve --host 0.0.0.0
+
   almundo-back:
     image: node:12.14.1-alpine
     container_name: almundo-back
@@ -35,9 +51,10 @@ services:
       - 80:80
     depends_on:
       - almundo-back
+      - almundo-front
     links:
-      - almundo-db:almundo-db
-      - almundo-back:almundo-back
+      - almundo-front:front
+      - almundo-back:back
     command: ["nginx", "-g", "daemon off;"]
     networks:
       - almundo-net
