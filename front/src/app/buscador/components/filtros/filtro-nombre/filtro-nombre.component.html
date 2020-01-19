@@ -1,0 +1,6 @@
+
+<form [formGroup]="filterNameForm" (ngSubmit)="filter()">
+  <p>Nombre del hotel</p>
+  <input type="text" formControlName="name" placeholder="Ingrese el nombre del hotel" />
+  <button class="btn btn-primary" type="submit">Aceptar</button>
+</form>

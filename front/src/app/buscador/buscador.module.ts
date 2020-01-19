@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FiltrosComponent } from './filtros/filtros.component';
-import { ResultadosComponent } from './resultados/resultados.component';
-import { ItemBusquedaComponent } from './item-busqueda/item-busqueda.component';
-import { BusquedaComponent } from './busqueda/busqueda.component';
+import { FiltrosComponent } from './components/filtros/filtros.component';
+import { ResultadosComponent } from './components/resultados/resultados.component';
+import { ItemBusquedaComponent } from './components/item-busqueda/item-busqueda.component';
+import { BusquedaComponent } from './components/busqueda.component';
 import { BuscadorRoutingModule } from './buscador-routing.module';
-import { FiltroNombreComponent } from './filtros/filtro-nombre/filtro-nombre.component';
-import { FiltroEstrellasComponent } from './filtros/filtro-estrellas/filtro-estrellas.component';
+import { FiltroNombreComponent } from './components/filtros/filtro-nombre/filtro-nombre.component';
+import { FiltroEstrellasComponent } from './components/filtros/filtro-estrellas/filtro-estrellas.component';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     BuscadorRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class BuscadorModule { }

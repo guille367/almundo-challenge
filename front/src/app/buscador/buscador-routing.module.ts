@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BusquedaComponent } from './busqueda/busqueda.component';
+import { BusquedaComponent } from './components/busqueda.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'buscar', pathMatch: 'full' },

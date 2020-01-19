@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import HotelFilter from '../models/HotelFilter';
 
 @Component({
   selector: 'busqueda',
@@ -6,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./busqueda.component.scss']
 })
 export class BusquedaComponent implements OnInit {
-
-  constructor() { 
+  
+  constructor() {
+    
+  }
+  
+  ngOnInit(): void {
+    
   }
 
-  ngOnInit() {
-  }
 
 }
