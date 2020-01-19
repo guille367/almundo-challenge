@@ -1,11 +1,10 @@
 <div>
-  <input type="checkbox" /> 
-  &nbsp;
-  <span>Todas las estellas</span>
+  <input type="checkbox" (click)="selectAll()" [disabled]="stars.length === 0" [checked]="stars.length === 0"/> 
+  <span>Todas las estrellas</span>
 </div>
 
 <div *ngFor="let estrellas of cantidadEstrellasAFiltrar">
-  <input type="checkbox" />
+  <input type="checkbox" (click)="toggleEstrellaFilter(estrellas, $event.target.checked)" [checked]="isSelected(estrellas)"/>
   &nbsp;
-  <estrellas [cantidad]="estrellas">  </estrellas>
+  <estrellas [cantidad]="estrellas"></estrellas>
 </div>
