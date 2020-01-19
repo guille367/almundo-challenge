@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "adminalmundo",
+    "password": "almundoadmin",
+    "database": "almundo-db",
+    "host": "localhost",
+    "dialect": "postgresql"
+  }, 
+  "production": {
+    "username": "adminalmundo",
+    "password": "almundoadmin",
+    "database": "almundo-db",
+    "host": "almundo-back",
+    "dialect": "postgresql"
+  }
+}
