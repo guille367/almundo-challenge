@@ -1,13 +1,15 @@
 {
-    "name": "almundo_back",
-    "version": "1.0.0",
-    "description": "almundo api",
-    "author": "Guillermo Ponce Andres <guillermo.gpa80@gmail.com>",
-    "main": "server.js",
-    "scripts": {
-      "start": "node server.js"
-    },
-    "dependencies": {
-      "express": "^4.16.1"
-    }
+  "name": "almundo_back",
+  "version": "1.0.0",
+  "description": "almundo api",
+  "author": "Guillermo Ponce Andres <guillermo.gpa80@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.1"
   }
+}
