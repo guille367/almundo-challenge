@@ -5,12 +5,20 @@
   "author": "Guillermo Ponce Andres <guillermo.gpa80@gmail.com>",
   "main": "server.js",
   "scripts": {
-    "start": "node server"
+    "start": "node server",
+    "migrate": "sequelize db:migrate --migrations-path 'domain/migrations'",
+    "seed": "sequelize db:seed:all --seeders-path 'domain/seeders'",
+    "undo-migrations": "sequelize db:migrate:undo:all --migrations-path 'domain/migrations'",
+    "undo-seeders": "sequelize db:seed:undo:all --seeders-path 'domain/seeders'",
+    "clean-db": "npm run undo-seeders && npm run undo-migrations",
+    "populate-db": "npm run migrate && npm run seed",
+    "restart-db": "npm run clean-db && npm run populate-db"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.16.1",
+    "lodash": "^4.17.15",
     "pg": "^7.17.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.3"
