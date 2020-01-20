@@ -24,6 +24,4 @@ expressErrorManager.setMannager(app)
 
 // app.listen(process.env.PORT, process.env.HOST);
 console.log(`lock and loaded at http://${process.env.HOST}:${process.env.PORT}`)
-app.listen(process.env.PORT, () => {
-  console.log('eyyyy')
-});
+app.listen(process.env.PORT);

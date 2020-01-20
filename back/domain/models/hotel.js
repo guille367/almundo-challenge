@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false
   });
   Hotel.associate = function(models) {
-    Hotel.belongsToMany(models.Amenity, { as: 'amenities', through: 'hotel_amenities', foreignKey: 'hotel_id', timestamps: false });
+    Hotel.belongsToMany(models.Amenity, { as: 'amenities', through: 'HotelAmenity', foreignKey: 'hotel_id', timestamps: false });
   };
   return Hotel;
 };

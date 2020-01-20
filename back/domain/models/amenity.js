@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false
   });
   Amenity.associate = function(models) {
-    Amenity.belongsToMany(models.Hotel, { as: 'amenities', through: 'hotel_amenities', foreignKey: 'hotel_id', timestamps: false });
+    Amenity.belongsToMany(models.Hotel, { as: 'hotels', through: 'HotelAmenity', foreignKey: 'amenity_id', timestamps: false });
   };
   return Amenity;
 };

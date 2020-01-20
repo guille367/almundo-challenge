@@ -21,9 +21,11 @@ class HotelController extends GenericController {
     //         })
     //     })
     // }
-  static list(req, res, next) { 
-    const filter = new HotelFilter()
-    res.send()
+  static async list(req, res, next) { 
+    const filter = new HotelFilter();
+    const service = new HotelService();
+    const hotel = await service.list()
+    res.send(hotel)
   }
 }
 
