@@ -1,6 +1,11 @@
 class BaseFilter {
-  page = 1;
-  pageSize = 10;
+  constructor(page, pageSize) {
+    this.pagination = {
+      offSet: page ? page - 1 : 0,
+      limit: pageSize || 10
+    }
+  }
+  
 }
 
 module.exports = BaseFilter;

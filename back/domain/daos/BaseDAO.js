@@ -7,8 +7,11 @@ class BaseDao {
     return this.Model.findByPk(id, options);
   }
 
-  list(filter, pagination, options) {
-    return this.Model.findAll({ where: filter, ...pagination, ... options});
+  list(filter, options) {
+    const { pagination } = filter
+    delete filter.pagination
+    console.log(filter)
+    return this.Model.findAll({ where: {...filter}, ...pagination, ...options});
   }
 }
 

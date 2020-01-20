@@ -16,8 +16,8 @@ class HotelDAO extends BaseDAO {
     return super.get(id, hotelOptions)
   }
 
-  list(filter, pagination) {
-    return super.list(filter, pagination, hotelOptions)
+  list(filter) {
+    return super.list(filter, hotelOptions)
   }
 }
 

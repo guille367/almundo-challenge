@@ -1,5 +1,7 @@
 # REST Client tests on https://github.com/tronalddump-io/tronald-app
 @baseUrl = http://localhost:8080
 
-### Get a random clever quote
-GET {{baseUrl}}/hoteles
+# GET {{baseUrl}}/hoteles
+
+@stars = [4, 5]
+GET {{baseUrl}}/hoteles?stars={{stars}}
