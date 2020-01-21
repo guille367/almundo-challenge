@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { HotelResponse } from 'src/app/hoteles/models/HotelResponse';
+import BaseResponse from 'src/app/shared/models/BaseResponse';
 
 @Component({
   selector: 'lista-hoteles',
@@ -8,12 +8,14 @@ import { HotelResponse } from 'src/app/hoteles/models/HotelResponse';
 })
 export class ListaHotelesComponent implements OnInit {
 
-  @Input() hoteles: HotelResponse;
+  @Input() list: BaseResponse<any>;
   constructor() { }
 
   ngOnInit() {
   }
   
-  
+  mostrarMasResultados() {
+    return this.list && (this.list.page * this.list.pageSize < this.list.totalCount)
+  }
 
 }

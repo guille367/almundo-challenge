@@ -1,5 +1,7 @@
-<div *ngIf="!hoteles?.data.length">
+<div *ngIf="!list?.data.length">
   No se encontraron resultados.
 </div>
 
-<item-busqueda *ngFor="let hotel of hoteles?.data" [hotel]="hotel"></item-busqueda>
+<item-busqueda *ngFor="let item of list?.data" [hotel]="item"></item-busqueda>
+
+<button *ngIf="mostrarMasResultados()" class="btn btn-primary" onClick="nextPage()">Mas resultados</button>
