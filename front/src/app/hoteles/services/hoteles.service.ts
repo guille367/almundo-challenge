@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { EndpointsConfig } from '../../config/endpoints.config';
 import { Observable } from 'rxjs';
@@ -10,6 +10,8 @@ import { HotelResponse } from '../models/HotelResponse';
   providedIn: 'root'
 })
 export class HotelesService {
+
+  onFilterUpdate = new EventEmitter<any>();
 
   constructor(private http: HttpClient) { }
 

@@ -4,4 +4,4 @@
 
 <item-busqueda *ngFor="let item of list?.data" [hotel]="item"></item-busqueda>
 
-<button *ngIf="mostrarMasResultados()" class="btn btn-primary" onClick="nextPage()">Mas resultados</button>
+<button *ngIf="mostrarMasResultados()" class="btn btn-primary" (click)="siguientePagina()">Mas resultados</button>

@@ -22,7 +22,12 @@ export class BusquedaComponent implements OnInit {
   fetchHotels(filter?: HotelFilter) {
     this.hotelesService.getHoteles(filter)
       .subscribe((response) => {
-        this.results = response;
+        const prevData = this.results ? this.results.data : []
+        const data = response.page > 1 ? [...prevData, ...response.data] : response.data;
+        this.results = {
+          ...response,
+          data
+        };
       })
   }
 }
