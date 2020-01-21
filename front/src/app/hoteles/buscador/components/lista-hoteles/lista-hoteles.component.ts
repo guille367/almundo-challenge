@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import Hotel from '../../../models/Hotel';
+import { HotelResponse } from 'src/app/hoteles/models/HotelResponse';
 
 @Component({
   selector: 'lista-hoteles',
@@ -8,7 +8,7 @@ import Hotel from '../../../models/Hotel';
 })
 export class ListaHotelesComponent implements OnInit {
 
-  @Input() hoteles: Array<Hotel>;
+  @Input() hoteles: HotelResponse;
   constructor() { }
 
   ngOnInit() {

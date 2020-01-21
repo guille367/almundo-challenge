@@ -1,6 +1,6 @@
 import Amenity from './Amenity';
 
-export default class HotelResponse {
+export default class Hotel {
   constructor() { }
 
   id: number;

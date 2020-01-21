@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import HotelFilter from '../../models/HotelFilter';
 import { HotelesService } from '../../services/hoteles.service';
-import Hotel from '../../models/Hotel';
+import { HotelResponse } from '../../models/HotelResponse';
 
 @Component({
   selector: 'busqueda',
@@ -10,7 +10,7 @@ import Hotel from '../../models/Hotel';
 })
 export class BusquedaComponent implements OnInit {
   
-  results: Array<Hotel>;
+  results: HotelResponse;
   constructor(private hotelesService: HotelesService) {
     
   }
@@ -19,7 +19,7 @@ export class BusquedaComponent implements OnInit {
     this.fetchHotels()
   }
 
-  fetchHotels(filter: HotelFilter) {
+  fetchHotels(filter?: HotelFilter) {
     this.hotelesService.getHoteles(filter)
       .subscribe((response) => {
         this.results = response;

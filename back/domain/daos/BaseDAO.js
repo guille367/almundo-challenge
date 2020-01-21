@@ -10,8 +10,7 @@ class BaseDao {
   list(filter, options) {
     const { pagination } = filter
     delete filter.pagination
-    console.log(filter)
-    return this.Model.findAll({ where: {...filter}, ...pagination, ...options});
+    return this.Model.findAndCountAll({ where: {...filter}, ...pagination, ...options});
   }
 }
 

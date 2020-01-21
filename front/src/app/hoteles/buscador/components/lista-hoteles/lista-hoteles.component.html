@@ -1,1 +1,5 @@
-<item-busqueda *ngFor="let hotel of hoteles" [hotel]="hotel"></item-busqueda>
+<div *ngIf="!hoteles?.data.length">
+  No se encontraron resultados.
+</div>
+
+<item-busqueda *ngFor="let hotel of hoteles?.data" [hotel]="hotel"></item-busqueda>
