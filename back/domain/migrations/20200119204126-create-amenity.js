@@ -10,9 +10,6 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING
-      },
-      icon_name: {
-        type: Sequelize.STRING,
       }
     });
   },

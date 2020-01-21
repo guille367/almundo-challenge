@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import HotelFilter from '../../models/HotelFilter';
+import HotelFilter from '../../../models/HotelFilter';
 
 @Component({
   selector: 'filtros',

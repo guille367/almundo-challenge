@@ -6,8 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    name: DataTypes.STRING,
-    icon_name: DataTypes.STRING,
+    name: DataTypes.STRING
   }, {
     timestamps: false
   });

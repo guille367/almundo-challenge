@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import Hotel from '../../../models/Hotel';
 
 @Component({
   selector: 'item-busqueda',
@@ -7,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemBusquedaComponent implements OnInit {
 
-  amenities: Array<string>;
+  @Input() hotel: Hotel;
 
   constructor() { 
-    this.amenities = ['bathtub', 'fitness-center', 'restaurant']
+    
   }
 
   ngOnInit() {
+    console.log(this.hotel)
   }
 
 }
