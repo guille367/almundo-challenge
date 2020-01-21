@@ -1,5 +1,6 @@
 const BaseFilter = require('./BaseFilter')
 const { Op } = require("sequelize");
+const flatten = require("lodash/flatten")
 
 class HotelFilter extends BaseFilter {
   constructor(filter) {
@@ -7,7 +8,7 @@ class HotelFilter extends BaseFilter {
     super(page, pageSize)
 
     this.name = { [Op.iLike]: `%${name || ''}%` };
-    this.stars = stars ? { [Op.in]: JSON.parse(stars) } : null;
+    this.stars = stars ? { [Op.in]: flatten([stars]) } : { [Op.ne]: null };
   }
 };
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import HotelFilter from '../../models/HotelFilter';
 
 @Component({
@@ -8,6 +8,7 @@ import HotelFilter from '../../models/HotelFilter';
 })
 export class FiltrosComponent implements OnInit {
 
+  @Output("filterResults") filterResults: EventEmitter<HotelFilter> = new EventEmitter<HotelFilter>();
   filter: HotelFilter;
 
   constructor() { 
@@ -15,12 +16,11 @@ export class FiltrosComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.filter)
   }
 
   onFilterChange(values) {
     this.filter = { ...this.filter, ...values }
-    console.log(values, this.filter)
+    this.filterResults.emit(this.filter)
   }
 
 }

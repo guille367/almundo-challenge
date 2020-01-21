@@ -10,7 +10,7 @@
     "username": "adminalmundo",
     "password": "almundoadmin",
     "database": "almundo-db",
-    "host": "almundo-back",
+    "host": "almundo-db",
     "dialect": "postgresql"
   }
 }

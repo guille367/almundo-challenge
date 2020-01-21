@@ -5,6 +5,6 @@ export default class HotelFilter extends BaseFilter {
     super(1, 10);
   }
 
-  name: string = "asds";
+  name: string = "";
   stars: Array<number>;
 }

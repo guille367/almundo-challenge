@@ -7,8 +7,9 @@ import { BusquedaComponent } from './components/busqueda.component';
 import { BuscadorRoutingModule } from './buscador-routing.module';
 import { FiltroNombreComponent } from './components/filtros/filtro-nombre/filtro-nombre.component';
 import { FiltroEstrellasComponent } from './components/filtros/filtro-estrellas/filtro-estrellas.component';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BuscadorRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class BuscadorModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import HotelFilter from '../models/HotelFilter';
+import { HotelesService } from '../../services/hoteles.service';
 
 @Component({
   selector: 'busqueda',
@@ -8,13 +9,19 @@ import HotelFilter from '../models/HotelFilter';
 })
 export class BusquedaComponent implements OnInit {
   
-  constructor() {
+  constructor(private hotelesService: HotelesService) {
     
   }
   
   ngOnInit(): void {
-    
+    this.fetchHotels({})
   }
 
-
+  fetchHotels(filter) {
+    console.log(filter)
+    this.hotelesService.getHoteles(filter)
+      .subscribe((response) => {
+        console.log(response)
+      })
+  }
 }
