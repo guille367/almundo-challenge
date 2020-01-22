@@ -3,7 +3,7 @@ const models = require('../models')
 
 const hotelOptions = { 
   include: { 
-    model: models.Amenity, as: 'amenities', attributes: ['name', 'icon_name'] 
+    model: models.Amenity, as: 'amenities', attributes: ['name'] 
   }
 }
 

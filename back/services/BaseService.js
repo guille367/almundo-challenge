@@ -22,7 +22,7 @@ class BaseService {
       let response = res;
 
       if(pagination) {
-        const parsedPagination = pagination ? { page: pagination.offSet + 1, pageSize: pagination.limit, totalCount: res.count } : {};
+        const parsedPagination = pagination ? { page: pagination.offset + 1, pageSize: pagination.limit, totalCount: res.count } : {};
         response = {
           data: res.rows,
           ...parsedPagination

@@ -15,7 +15,6 @@ export class ItemBusquedaComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.hotel)
   }
 
 }
