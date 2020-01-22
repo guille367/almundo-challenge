@@ -23,9 +23,10 @@ class HotelController extends GenericController {
   }
 
   static async delete(req, res, next) { 
-      const service = new HotelService();
-      await service.update(req.params.id)
-      res.send()
+    const service = new HotelService();
+    console.log(req.params.id)
+    await service.delete(req.params.id)
+    res.send()
   }
 }
 

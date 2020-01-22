@@ -6,5 +6,5 @@ const api = express.Router();
 api.get('', HotelController.list);
 api.post('', HotelController.create);
 api.put('/:id', HotelController.update);
-api.delete('/:id', HotelController.update);
+api.delete('/:id', HotelController.delete);
 module.exports = api;

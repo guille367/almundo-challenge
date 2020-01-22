@@ -3,8 +3,9 @@ const models = require('../models')
 
 const hotelOptions = { 
   include: { 
-    model: models.Amenity, as: 'amenities', attributes: ['name'] 
-  }
+    model: models.Amenity, as: 'amenities', attributes: ['name']
+  },
+  distinct: true
 }
 
 class HotelDAO extends BaseDAO {
