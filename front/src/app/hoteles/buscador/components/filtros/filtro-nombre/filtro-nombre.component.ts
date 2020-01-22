@@ -9,7 +9,8 @@ import { HotelesService } from 'src/app/hoteles/services/hoteles.service';
 })
 export class FiltroNombreComponent implements OnInit {
 
-  filterNameForm: FormGroup;
+  public filterNameForm: FormGroup;
+  public isCollapsed = false;
   
   constructor(private formBuilder: FormBuilder, private hotelesService: HotelesService) { 
     this.filterNameForm = this.formBuilder.group({

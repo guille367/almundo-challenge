@@ -1,10 +1,19 @@
-<div>
-  <input type="checkbox" (click)="selectAll()" [disabled]="stars.length === 0" [checked]="stars.length === 0"/> 
-  <span>Todas las estrellas</span>
+<div class="mb-3">
+  <a class="link-filter-title" routerLink="" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="filtro-nombre">
+    <b><img width="15" height="15" src="assets/icons/filters/star.svg" />&nbsp; Estrellas</b>
+  </a>
 </div>
 
-<div *ngFor="let estrellas of cantidadEstrellasAFiltrar">
-  <input type="checkbox" (click)="toggleEstrellaFilter(estrellas, $event.target.checked)" [checked]="isSelected(estrellas)"/>
-  &nbsp;
-  <estrellas [cantidad]="estrellas"></estrellas>
+<div id="filtro-estrellas" [ngbCollapse]="isCollapsed">
+  <div class="mb-2">
+    <input type="checkbox" (click)="selectAll()" [disabled]="stars.length === 0" [checked]="stars.length === 0"/> 
+    &nbsp;
+    <span>Todas las estrellas</span>
+  </div>
+
+  <div class="mb-2" *ngFor="let estrellas of cantidadEstrellasAFiltrar">
+    <input type="checkbox" (click)="toggleEstrellaFilter(estrellas, $event.target.checked)" [checked]="isSelected(estrellas)"/>
+    &nbsp;
+    <estrellas [cantidad]="estrellas"></estrellas>
+  </div>
 </div>

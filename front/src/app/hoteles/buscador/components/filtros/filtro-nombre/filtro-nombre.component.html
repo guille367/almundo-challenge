@@ -1,6 +1,16 @@
 
 <form [formGroup]="filterNameForm" (ngSubmit)="filter()">
-  <p>Nombre del hotel</p>
-  <input type="text" formControlName="name" placeholder="Ingrese el nombre del hotel" />
-  <button class="btn btn-primary" type="submit">Aceptar</button>
+  <div class="mb-3">
+    <a class="link-filter-title" routerLink=""  (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="filtro-nombre">
+      <b> <img width="15" height="15" src="assets/icons/filters/search.svg" />&nbsp; Nombre del hotel</b>
+    </a>
+  </div>
+  <div id="filtro-nombre" [ngbCollapse]="isCollapsed" class="row">
+    <div class="col-lg-9 col-md-6 col-sm-6">
+      <input type="text" class="form-control" formControlName="name" placeholder="Ingrese el nombre del hotel" />
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <button class="btn btn-primary btn-block" type="submit">Aceptar</button>
+    </div>
+  </div>
 </form>

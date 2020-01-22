@@ -10,6 +10,7 @@ export class FiltroEstrellasComponent implements OnInit {
 
   cantidadEstrellasAFiltrar: Array<number>;
   stars: Array<number>;
+  public isCollapsed = false;
   
   constructor(private hotelesService: HotelesService) { 
     this.cantidadEstrellasAFiltrar = [5,4,3,2,1];

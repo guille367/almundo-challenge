@@ -1,0 +1,14 @@
+.filter-box {
+  border-radius: 0em;
+  margin-bottom: 5px;
+  & .card-body {
+    padding: 10px;
+  }
+  & .card-title {
+    margin: 2px 10px 5px 10px;
+  }
+}
+
+.filter-title {
+  font-size: 1.25em;  
+}
