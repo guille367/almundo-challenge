@@ -11,7 +11,7 @@ import { HotelResponse } from '../models/HotelResponse';
 })
 export class HotelesService {
 
-  onFilterUpdate = new EventEmitter<any>();
+  updateFilter = new EventEmitter<any>();
 
   constructor(private http: HttpClient) { }
 

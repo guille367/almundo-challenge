@@ -11,12 +11,21 @@ import { HotelResponse } from '../../models/HotelResponse';
 export class BusquedaComponent implements OnInit {
   
   results: HotelResponse;
+  filter = new HotelFilter();
+
   constructor(private hotelesService: HotelesService) {
-    
+    this.filter = new HotelFilter();
+
+    this.hotelesService.updateFilter
+      .subscribe(values => {
+        this.filter = { ...this.filter, ...values };
+        console.log(this.filter)
+        this.fetchHotels(this.filter);
+      })
   }
   
   ngOnInit(): void {
-    this.fetchHotels()
+    this.fetchHotels(this.filter)
   }
 
   fetchHotels(filter?: HotelFilter) {

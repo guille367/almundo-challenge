@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { HotelesService } from 'src/app/hoteles/services/hoteles.service';
 
 @Component({
   selector: 'filtro-estrellas',
@@ -7,11 +8,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class FiltroEstrellasComponent implements OnInit {
 
-  @Output("onFilterChange") onFilterChange: EventEmitter<any> = new EventEmitter();
   cantidadEstrellasAFiltrar: Array<number>;
   stars: Array<number>;
   
-  constructor() { 
+  constructor(private hotelesService: HotelesService) { 
     this.cantidadEstrellasAFiltrar = [5,4,3,2,1];
     this.stars = []
   }
@@ -27,12 +27,12 @@ export class FiltroEstrellasComponent implements OnInit {
       this.stars = this.stars.filter(estrellas => estrellas !== filtroSeleccionado)
     }
 
-    this.onFilterChange.emit({ stars: this.stars })
+    this.hotelesService.updateFilter.emit({ stars: this.stars, page: 1 })
   }
 
   selectAll() {
     this.stars = []
-    this.onFilterChange.emit({ stars: this.stars })
+    this.hotelesService.updateFilter.emit({ stars: this.stars, page: 1 })
   }
 
   isSelected(estrella) {

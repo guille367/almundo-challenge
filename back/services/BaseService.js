@@ -17,20 +17,7 @@ class BaseService {
   async list(filter) {
     try {
       const dao = new this.Dao();
-      const { pagination } = filter;
-      const res = await dao.list(filter);
-      let response = res;
-
-      if(pagination) {
-        const parsedPagination = pagination ? { page: pagination.offset + 1, pageSize: pagination.limit, totalCount: res.count } : {};
-        response = {
-          data: res.rows,
-          ...parsedPagination
-        }
-      }
-
-      
-      return response
+      return await dao.list(filter);
     }
     catch(error) {
       throw error

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { HotelesService } from 'src/app/hoteles/services/hoteles.service';
 
 @Component({
   selector: 'filtro-nombre',
@@ -8,12 +9,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class FiltroNombreComponent implements OnInit {
 
-  @Output("onFilterChange") onFilterChange: EventEmitter<any> = new EventEmitter();
   filterNameForm: FormGroup;
   
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder, private hotelesService: HotelesService) { 
     this.filterNameForm = this.formBuilder.group({
-      name: ''
+      name: '',
+      page: 1
     });
   }
   
@@ -21,7 +22,7 @@ export class FiltroNombreComponent implements OnInit {
   }
 
   filter() {
-    this.onFilterChange.emit(this.filterNameForm.value)
+    this.hotelesService.updateFilter.emit(this.filterNameForm.value)
   }
 
 }
