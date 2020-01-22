@@ -22,6 +22,18 @@ class BaseDao {
         return res
     });
   }
+
+  create(entity, options = {}) {
+    return this.Model.create(entity, options);
+  }
+
+  update(id, entity, options = {}) {
+    return this.Model.update(entity, { where: { id }, ...options });
+  }
+
+  delete(id, options = {}) {
+    return this.Model.destroy({ where: { id }, ...options });
+  }
 }
 
 module.exports = BaseDao;
