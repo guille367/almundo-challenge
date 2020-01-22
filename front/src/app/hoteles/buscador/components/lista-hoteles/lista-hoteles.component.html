@@ -1,7 +1,7 @@
 <div *ngIf="!list?.data.length">
   No se encontraron resultados.
 </div>
-
 <item-busqueda *ngFor="let item of list?.data" [hotel]="item"></item-busqueda>
-
-<button *ngIf="mostrarMasResultados()" class="btn btn-primary" (click)="siguientePagina()">Mas resultados</button>
+<div class="text-center mt-3 mb-3">
+  <a routerLink="" *ngIf="mostrarMasResultados()" class="link link-primary" (click)="siguientePagina()">Mas resultados</a>
+</div>

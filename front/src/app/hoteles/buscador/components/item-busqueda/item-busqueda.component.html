@@ -1,15 +1,28 @@
-<div class="row">
-  <div class="col">
-    <img height="200" width="350" src="https://q-cf.bstatic.com/images/hotel/max1024x768/681/68184730.jpg" />
-  </div>
-  <div class="col">
-    <h5>{{hotel.name}}</h5>
-    <estrellas [cantidad]="hotel.stars"></estrellas>
-    <icon *ngFor="let amenity of hotel.amenities" [iconName]="amenity.name"></icon>
-  </div>
-  <div class="col">
-    <p>Precio por noche por habitación</p>
-    <h4>ARS</h4> <h3>{{hotel.price}}</h3>
-    <button type="button" class="btn btn-primary">Ver hotel</button>
+<div class="card shadow-sm">
+  <div class="card-body card-hotel">
+    <div class="row">
+      <div class="col-md-3">
+        <img height="200" width="350" src="https://q-cf.bstatic.com/images/hotel/max1024x768/681/68184730.jpg" />
+      </div>
+      <div class="col-md-6 br-dashed">
+        <div class="card-hotel-info">
+          <h5 class="title"><b>{{hotel.name}}</b></h5>
+          <div class="block mb-3">
+            <estrellas [cantidad]="hotel.stars"></estrellas>
+          </div>
+          <icon class="mr-3" *ngFor="let amenity of hotel.amenities" [iconName]="amenity.name"></icon>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="price-container">
+          <div class="title-price">
+            <p>Precio por noche por habitación</p>
+          </div>
+          <span class="mr-2 orange">ARS</span>  
+          <b class="orange">{{hotel.price}}</b>
+          <button type="button" class="btn btn-primary btn-block"><h4>Ver hotel</h4></button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

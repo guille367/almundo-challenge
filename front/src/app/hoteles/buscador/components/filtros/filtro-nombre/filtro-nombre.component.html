@@ -1,8 +1,8 @@
 
 <form [formGroup]="filterNameForm" (ngSubmit)="filter()">
   <div class="mb-3">
-    <a class="link-filter-title" routerLink=""  (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="filtro-nombre">
-      <b> <img width="15" height="15" src="assets/icons/filters/search.svg" />&nbsp; Nombre del hotel</b>
+    <a class="link-filter-title" routerLink="" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="filtro-nombre">
+      <b><img width="15" height="15" src="assets/icons/filters/search.svg" />&nbsp; Nombre del hotel</b>
     </a>
   </div>
   <div id="filtro-nombre" [ngbCollapse]="isCollapsed" class="row">

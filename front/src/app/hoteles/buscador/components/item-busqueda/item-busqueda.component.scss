@@ -1,0 +1,33 @@
+.card-hotel {
+  padding: 10px;
+}
+
+.card-hotel-info {
+  padding: 0px 15px;
+}
+
+.br-dashed {
+  border-right: 1px dashed #e2dcdc;
+}
+
+.title {
+  color: #003789;
+}
+
+.price-container {
+  padding: 30px;
+  & span {
+      font-size: 30px;
+    }
+  & b {
+    font-size: 50px;
+  }
+  & .orange {
+    color: #ff5e00;
+  }
+}
+
+.title-price {
+  padding: 0px 18px;
+  text-align: center;
+}
