@@ -3,29 +3,29 @@ const HotelFilter = require('../services/filters/HotelFilter')
 const HotelService = require('../services/HotelService')
 
 class HotelController extends GenericController {
-    // static getPokemons(req, res, next) {
-    //     const filter = new PokemonFilter()
-    //     filter.fillData(req.query)
-    //     PokemonController.resolve(next,
-    //             Promise.all([
-    //                 PokemonService.find(filter), 
-    //                 PokemonService.count(filter)
-    //             ]), results => {
-    //         res.status(200).send({
-    //             data: {
-    //                 list: PokemonAssembler.toDTOs(results[0]),
-    //                 total:results[1],
-    //                 offset: filter.pagination.offset,
-    //                 limit: filter.pagination.limit
-    //             }
-    //         })
-    //     })
-    // }
   static async list(req, res, next) { 
     const filter = new HotelFilter(req.query);
     const service = new HotelService();
     const hotel = await service.list(filter)
     res.send(hotel)
+  }
+
+  static async create(req, res, next) { 
+    const service = new HotelService();
+    const hotel = await service.create(req.body)
+    res.send(hotel)
+  }
+
+  static async update(req, res, next) { 
+    const service = new HotelService();
+    const hotel = await service.update(req.params.id, req.body)
+    res.send(hotel)
+  }
+
+  static async delete(req, res, next) { 
+      const service = new HotelService();
+      await service.update(req.params.id)
+      res.send()
   }
 }
 
