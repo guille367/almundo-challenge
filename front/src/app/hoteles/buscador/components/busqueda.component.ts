@@ -19,7 +19,6 @@ export class BusquedaComponent implements OnInit {
     this.hotelesService.updateFilter
       .subscribe(values => {
         this.filter = { ...this.filter, ...values };
-        console.log(this.filter)
         this.fetchHotels(this.filter);
       })
   }

@@ -8,19 +8,26 @@ class BaseDao {
   }
 
   list(filter, options) {
-    const { pagination } = filter
-    delete filter.pagination
-    return this.Model.findAndCountAll({ where: {...filter}, ...pagination, ...options})
+    const pagination = { ...filter.pagination };
+    
+    const pager = pagination ? { offset: (pagination.page - 1) * pagination.pageSize, limit: pagination.pageSize  } : {}
+    delete filter.pagination;
+
+    return this.Model.findAndCountAll({ where: { ...filter }, ...pager, ...options })
       .then(res => {
-        if(pagination) {
-          const parsedPagination = pagination ? { page: pagination.offset, pageSize: pagination.limit, totalCount: res.count } : {};
-          return {
-            data: res.rows,
-            ...parsedPagination
+
+        const parsedPagination = pagination
+          ? {
+            page: pagination.page,
+            pageSize: pagination.pageSize,
+            totalCount: res.count
           }
+          : {};
+        return {
+          data: res.rows,
+          ...parsedPagination
         }
-        return res
-    });
+      })
   }
 
   create(entity, options = {}) {

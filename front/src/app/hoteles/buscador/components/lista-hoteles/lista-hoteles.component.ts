@@ -21,7 +21,7 @@ export class ListaHotelesComponent implements OnInit {
 
   siguientePagina() {
     this.hotelesService.updateFilter.emit({
-      page: this.list.page + 1
+      page: Number(this.list.page) + 1
     })
   }
 
