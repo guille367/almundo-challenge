@@ -1,0 +1,68 @@
+version: '3.4'
+
+services:
+
+  almundo-db:
+    image: postgres:11-alpine
+    container_name: almundo-db
+    environment:
+      - POSTGRES_DB=almundo-db
+      - POSTGRES_USER=adminalmundo
+      - POSTGRES_PASSWORD=almundoadmin
+    ports:
+      - 5432:5432
+    networks:
+      - almundo-net
+
+  almundo-front:
+    image: angular:latest
+    build:
+      context: ../front
+      dockerfile: Dockerfile.development
+    container_name: almundo-front
+    tty: true
+    networks:
+      - almundo-net
+    ports:
+      - 4200:4200
+    volumes:
+      - ../front:/front
+    working_dir: /front
+    command: ng serve --host 0.0.0.0 --disable-host-check
+
+  almundo-back:
+    image: node:12.14.1-alpine
+    container_name: almundo-back
+    volumes:
+      - ../back:/back
+    build:
+      context: ../back
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on: [almundo-db]
+    networks:
+      - almundo-net
+    links:
+      - almundo-db
+  
+  almundo-nginx:
+    image: nginx:alpine
+    container_name: almundo-nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+    depends_on:
+      - almundo-back
+      - almundo-front
+    links:
+      - almundo-front:front
+      - almundo-back:back
+    command: ["nginx", "-g", "daemon off;"]
+    networks:
+      - almundo-net
+
+networks:
+  almundo-net:
+    driver: bridge
