@@ -1,0 +1,1 @@
+Para ejecutar la aplicación correr el comando sh run.sh :)

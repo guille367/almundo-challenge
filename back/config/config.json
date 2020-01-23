@@ -3,7 +3,7 @@
     "username": "adminalmundo",
     "password": "almundoadmin",
     "database": "almundo-db",
-    "host": "localhost",
+    "host": "almundo-db",
     "dialect": "postgresql"
   }, 
   "production": {

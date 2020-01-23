@@ -13,7 +13,7 @@ class BaseDao {
     return this.Model.findAndCountAll({ where: {...filter}, ...pagination, ...options})
       .then(res => {
         if(pagination) {
-          const parsedPagination = pagination ? { page: pagination.offset + 1, pageSize: pagination.limit, totalCount: res.count } : {};
+          const parsedPagination = pagination ? { page: pagination.offset, pageSize: pagination.limit, totalCount: res.count } : {};
           return {
             data: res.rows,
             ...parsedPagination
