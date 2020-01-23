@@ -1,7 +1,7 @@
-﻿# Challenge  ![logo-almundo](./logo-almundo.svg?)
+﻿# Challenge  ![logo-almundo](./logo-almundo.svg)
 
 :rocket: Para correr la aplicación ejecutar:
 - En Linux: sh run.sh 
-- En windows: run run.bat :)
+- En windows: run.cmd
 
 Collecion de request en /back/dock.http :fire:
