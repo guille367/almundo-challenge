@@ -12,6 +12,7 @@ class HotelController extends GenericController {
 
   static async create(req, res, next) { 
     const service = new HotelService();
+    console.log(req.body)
     const hotel = await service.create(req.body)
     res.send(hotel)
   }

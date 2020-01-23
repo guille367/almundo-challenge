@@ -12,25 +12,17 @@ const hotelRouter = require('./routes/hotelRouter')
 
 const app = express();
 
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json());
-
-app.use('', (req,res, next) => {
-  req.query = qs.parse(req.query);
-  next();
-});
-
 app.use(cors())
 
 app.use(fileUpload());
 
 app.use(express.static('assets/images'));
 
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json({ extended: true }))
+
 app.use('/hoteles', hotelRouter)
 
-app.get('/api', (req, res) => {
-  res.send('Hello World');
-});
 
 expressErrorManager.setMannager(app)
 

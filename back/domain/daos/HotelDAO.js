@@ -14,11 +14,30 @@ class HotelDAO extends BaseDAO {
   }
 
   get(id) {
-    return super.get(id, hotelOptions)
+    return super.get(id, hotelOptions);
   }
 
   list(filter) {
-    return super.list(filter, hotelOptions)
+    return super.list(filter, hotelOptions);
+  }
+
+  create(entity) {
+    return super.create(entity).then(hotel => {
+      JSON.parse(entity.amenities).forEach(amenity => {
+        models.HotelAmenity.create({ hotel_id: hotel.id, amenity_id: amenity });
+      });
+      return hotel;
+    });
+  }
+
+  update(id, entity) {
+    return super.update(id, entity).then(hotel => {
+      JSON.parse(entity.amenities).forEach(amenity => {
+        models.HotelAmenity.destroy({where: { hotel_id: id }})
+        models.HotelAmenity.create({ hotel_id: id, amenity_id: amenity })
+        return hotel;
+      });
+    });
   }
 }
 

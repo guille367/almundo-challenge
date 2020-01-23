@@ -1,6 +1,6 @@
 const fileUploaderMiddleware = (req, res, next) => {
-  const { image } = req.files
-  if(image) {
+  if(req.files && req.files.image) {
+    const { image } = req.files
     image.mv(`assets/images/${image.name}`, (err) => {
       if(!err) {
         req.body.image = req.files.image.name;
