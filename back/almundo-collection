@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "ceff99a6-7488-41dc-a96e-90141329d16f",
+		"name": "ALMUNDO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET HOTELES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/hoteles?name=ste&stars=1&stars=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"hoteles"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "ste"
+						},
+						{
+							"key": "stars",
+							"value": "1"
+						},
+						{
+							"key": "stars",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Create hoteles",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "name",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "200.2",
+							"type": "text"
+						},
+						{
+							"key": "stars",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "amenities",
+							"value": "[1,2,3]",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/hoteles?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"hoteles"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "ste",
+							"disabled": true
+						},
+						{
+							"key": "stars",
+							"value": "[1,2]",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Eliminar hotel",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/hoteles/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"hoteles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Actualizar hoteles",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "nombre",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "2505.2",
+							"type": "text"
+						},
+						{
+							"key": "stars",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "amenities",
+							"value": "[1,2,3]",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/gponce/Descargas/02°(1) (1).png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/hoteles/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"hoteles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
