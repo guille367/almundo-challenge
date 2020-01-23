@@ -5,7 +5,7 @@ const hotelOptions = {
   include: { 
     model: models.Amenity, as: 'amenities', attributes: ['name']
   },
-  // distinct: true
+  distinct: true
 }
 
 class HotelDAO extends BaseDAO {
