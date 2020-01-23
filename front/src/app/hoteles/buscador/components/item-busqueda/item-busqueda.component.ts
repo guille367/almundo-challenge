@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import Hotel from '../../../models/Hotel';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'item-busqueda',
@@ -9,9 +10,10 @@ import Hotel from '../../../models/Hotel';
 export class ItemBusquedaComponent implements OnInit {
 
   @Input() hotel: Hotel;
+  url: string;
 
   constructor() { 
-    
+    this.url = environment.apiUrl;
   }
 
   ngOnInit() {

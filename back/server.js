@@ -3,6 +3,7 @@
 require('dotenv').config()
 
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 const qs = require('qs');
 const expressErrorManager = require('./utils/expressErrorManager');
@@ -15,12 +16,15 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 app.use('', (req,res, next) => {
-  debugger
   req.query = qs.parse(req.query);
   next();
 });
 
 app.use(cors())
+
+app.use(fileUpload());
+
+app.use(express.static('assets/images'));
 
 app.use('/hoteles', hotelRouter)
 
