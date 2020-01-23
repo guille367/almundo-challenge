@@ -1,7 +1,75 @@
 # REST Client tests on https://github.com/tronalddump-io/tronald-app
 @baseUrl = http://localhost:8080/api
 
+# Obtener hoteles
 # GET {{baseUrl}}/hoteles
+# @Params:
+# - name: string
+# - stars: Array<number>
 
+# GET Hoteles de 4 y 5 estrellas
 @stars = [4, 5]
 GET {{baseUrl}}/hoteles?stars={{stars}}
+
+###
+
+# GET Hoteles cuyo nombre contenga la palabra "hote"
+@name = "hote"
+GET {{baseUrl}}/hoteles?name={{name}}
+
+###
+
+# GET Hoteles cuyo nombre contenga la palabra "hote" y tengan 4 o 5 estrellas
+@name = "hote"
+@stars = [4, 5]
+GET {{baseUrl}}/hoteles?name={{name}}
+
+###
+
+# Crear hotel
+# POST {{baseUrl}}/hoteles
+# @Body params:
+# - name: string
+# - stars: number
+# - price: Array<number>
+# - amenities: Array<number>
+# - image 
+POST {{baseUrl}}/hoteles
+{
+    "name": "sample",
+    "price": 200.2,
+    "stars": 3,
+    "amenities": [3,4,5,1,2]
+}
+
+###
+
+# Actualizar hotel
+# PUT {{baseUrl}}/hoteles
+
+# @Params:
+# - id: number 
+
+# @Body params:
+# - name: string
+# - stars: number
+# - price: Array<number>
+# - amenities: Array<number>
+# - image 
+@id = 1
+PUT {{baseUrl}}/hoteles/{{id}}
+{
+    "name": "sample updated",
+    "price": 250.5,
+    "stars": 4,
+    "amenities": [5,6,7,8]
+}
+
+###
+
+# Eliminarr hotel
+# DELETE {{baseUrl}}/hoteles/:id
+# @Params:
+# - id: number 
+@id = 1
+PUT {{baseUrl}}/hoteles/{{id}}
