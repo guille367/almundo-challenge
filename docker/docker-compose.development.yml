@@ -16,23 +16,24 @@ services:
 
   almundo-front:
     image: angular:latest
+    container_name: almundo-front
+    working_dir: /front
+    volumes:
+      - ../front:/front
     build:
       context: ../front
       dockerfile: Dockerfile.development
-    container_name: almundo-front
+    ports:
+      - 4200:4200
     tty: true
     networks:
       - almundo-net
-    ports:
-      - 4200:4200
-    volumes:
-      - ../front:/front
-    working_dir: /front
     command: ng serve --host 0.0.0.0 --disable-host-check
 
   almundo-back:
     image: node:12.14.1-alpine
     container_name: almundo-back
+    working_dir: /back
     volumes:
       - ../back:/back
     build:
@@ -40,11 +41,13 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8080:8080
-    depends_on: [almundo-db]
+    tty: true
     networks:
       - almundo-net
     links:
       - almundo-db
+    depends_on: [almundo-db]
+    command: npm run start-dev
   
   almundo-nginx:
     image: nginx:alpine

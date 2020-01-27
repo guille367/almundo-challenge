@@ -28,6 +28,7 @@ services:
       - almundo-net
     links:
       - almundo-db
+    command: npm start
   
   almundo-nginx:
     container_name: almundo-nginx
