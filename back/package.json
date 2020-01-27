@@ -5,7 +5,7 @@
   "author": "Guillermo Ponce Andres <guillermo.gpa80@gmail.com>",
   "main": "server.js",
   "scripts": {
-    "start-dev": "nodemon server.js",
+    "start-dev": "nodemon --inspect=0.0.0.0 server.js",
     "start": "pm2-runtime server.js",
     "migrate": "sequelize db:migrate --migrations-path 'domain/migrations'",
     "seed": "sequelize db:seed:all --seeders-path 'domain/seeders'",

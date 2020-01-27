@@ -41,11 +41,12 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8080:8080
+      - 9229:9229
     tty: true
     networks:
       - almundo-net
     links:
-      - almundo-db
+      - almundo-db:almundo-db
     depends_on: [almundo-db]
     command: npm run start-dev
   
